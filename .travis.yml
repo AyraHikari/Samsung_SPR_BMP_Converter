@@ -16,7 +16,7 @@ before_install:
   - yes | sdkmanager "platforms;android-29"
 
 after_script:
-  - curl -s -F chat_id="388576209" -F document=@"app/build/outputs/apk/debug/*.apk" https://api.telegram.org/bot$tgapi/sendDocument > /dev/null
+  - curl -s -F chat_id="388576209" -F document=@"app/build/outputs/apk/debug/app-debug.apk" https://api.telegram.org/bot$tgapi/sendDocument > /dev/null
 
 licenses:
   - '.+'
