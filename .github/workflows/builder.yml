@@ -1,13 +1,9 @@
-# This workflow will build a Java project with Gradle
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
-
 name: Build APK
 
 on:
   push:
-    branches: [ ** ]
-  pull_request:
-    branches: [ ** ]
+    branches:
+      - '**'
 
 jobs:
   build:
@@ -29,4 +25,4 @@ jobs:
       env:
         OWNER_ID: ${{ secrets.OWNER_ID }}
         TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-    run: curl -s -F chat_id="$OWNER_ID" -F document=@"app/build/outputs/apk/debug/app-debug.apk" https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument > /dev/null
+      run: curl -s -F chat_id="$OWNER_ID" -F document=@"app/build/outputs/apk/debug/app-debug.apk" https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument > /dev/null
